@@ -18,7 +18,7 @@ return [
             'cookieValidationKey' => $params['cookieValidationKey'],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'shop\entities\User\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => $params['cookieDomain']],
         ],
@@ -42,7 +42,21 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'google' => [
+                    'class' => 'yii\authclient\clients\Google',
+                    'clientId' => 'google_client_id',
+                    'clientSecret' => 'google_client_secret',
+                ],
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '454649074911782',
+                    'clientSecret' => '900b0319d31c420614c5cb8261fd859d',
+                ],
+            ],
+        ],
         'frontendUrlManager' => require __DIR__ . '/urlManager.php',
         'backendUrlManager' => require __DIR__ . '/../../backend/config/urlManager.php',
         'urlManager' => function() {
