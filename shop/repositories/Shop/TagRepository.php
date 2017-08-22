@@ -6,6 +6,14 @@ use shop\repositories\NotFoundException;
 
 class TagRepository
 {
+    public function findByName($name): Tag
+    {
+        if(!$tag = Tag::findOne(['name' => $name])) {
+            throw new NotFoundException('Tag is not found.');
+        }
+        return $tag;
+    }
+
     public function get($id): Tag
     {
         if(!$tag = Tag::findOne($id)) {

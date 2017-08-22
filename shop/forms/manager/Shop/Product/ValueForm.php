@@ -4,9 +4,11 @@ namespace shop\forms\manager\Shop\Product;
 
 use shop\entities\Shop\Characteristic;
 use yii\base\Model;
+use shop\entities\Shop\Product\Value;
 
 class ValueForm extends Model
 {
+    public $id;
     public $value;
 
     private $_characteristic;
@@ -16,6 +18,7 @@ class ValueForm extends Model
         if($value) {
             $this->value = $value->value;
         }
+        $this->id = $characteristic->id;
         $this->_characteristic = $characteristic;
         parent::__construct($config);
     }
