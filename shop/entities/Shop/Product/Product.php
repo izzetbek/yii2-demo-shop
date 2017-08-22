@@ -48,7 +48,15 @@ class Product extends ActiveRecord
             MetaBehavior::class,
             [
                 'class' => SaveRelationsBehavior::class,
-                'relations' => ['categoryAssignments', 'tagAssignments', 'values', 'photos', 'relatedProductAssignments', 'modifications', 'reviews'],
+                'relations' => [
+                    'categoryAssignments',
+                    'tagAssignments',
+                    'values',
+                    'photos',
+                    'relatedProductAssignments',
+                    'modifications',
+                    'reviews'
+                ],
             ],
         ];
     }
